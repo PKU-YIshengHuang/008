@@ -6,18 +6,17 @@ public class SplitDemo {
 		int k = new Solution().myAtoi("    123");
 		System.out.println("k="+k);
 	}
-
 }
  class Solution {
     public int myAtoi(String str) {
-        if (str.length()==0) //ÅÅ³ıµÚÒ»Î»ÊÇ¿Õ´®µÄÇé¿ö
+        if (str.length()==0) //æ’é™¤ç¬¬ä¸€ä½æ˜¯ç©ºä¸²çš„æƒ…å†µ
             return 0;
         if(str.equals("0"))
             return 0;
         String[] s = str.split("\\s+");
 //        System.out.println("s0 = "+s[0]);
 //        System.out.println("s1 = "+s[1]);
-       // split ÎŞ·¨ÕıÈ·ÇĞ³ıÇ°ÃæµÄÓĞ¿Õ¸ñµÄÇé¿ö£¬»á½«¿Õ¸ñ´æ´¢µ½µÚÒ»¸ö×Ö·û´®ÖĞ¡£
+       // split æ— æ³•æ­£ç¡®åˆ‡é™¤å‰é¢çš„æœ‰ç©ºæ ¼çš„æƒ…å†µï¼Œä¼šå°†ç©ºæ ¼å­˜å‚¨åˆ°ç¬¬ä¸€ä¸ªå­—ç¬¦ä¸²ä¸­ã€‚
         if (!s[0].isEmpty())
         	str = s[0];
         else
@@ -26,19 +25,19 @@ public class SplitDemo {
         char[] c = str.toCharArray();
         for(int i = 0; i<c.length; i++){
             if(i==0){
-                if(c[0]=='+'){  //³ıÈ¥Õı¸ººÅ
+                if(c[0]=='+'){  //é™¤å»æ­£è´Ÿå·
                     String str1 = new String(c,1,c.length-1); 
                     str = str1;
                     continue;
                 }
-                if((c[0]!='-')&&(c[0]<'0'||c[0]>'9'))//³ıÈ¥µÚÒ»Î»ÊÇ×ÖÄ¸µÄÇé¿ö
+                if((c[0]!='-')&&(c[0]<'0'||c[0]>'9'))//é™¤å»ç¬¬ä¸€ä½æ˜¯å­—æ¯çš„æƒ…å†µ
                     return 0;
             }
-            else                    //µÚ¶şÎ»ÒÔ¼°ÒÔºóµÄÇé¿ö
+            else                    //ç¬¬äºŒä½ä»¥åŠä»¥åçš„æƒ…å†µ
                 if(c[i]<'0'||c[i]>'9')
                     return 0;
         }
-        if(str.length()==0||str.equals("-")) //ÅĞ¶Ï³ıÈ¥Õı¸ººÅµÄ´®ÊÇ·ñÊÇ¿Õ´®£»ÒÔ¼°Ö»ÓĞÒ»¸ö·ûºÅ£¨-£©µÄ×Ö·û´®
+        if(str.length()==0||str.equals("-")) //åˆ¤æ–­é™¤å»æ­£è´Ÿå·çš„ä¸²æ˜¯å¦æ˜¯ç©ºä¸²ï¼›ä»¥åŠåªæœ‰ä¸€ä¸ªç¬¦å·ï¼ˆ-ï¼‰çš„å­—ç¬¦ä¸²
             return 0;
         double temp = Double.parseDouble(str);
         if(temp<Integer.MAX_VALUE && temp>Integer.MAX_VALUE)
